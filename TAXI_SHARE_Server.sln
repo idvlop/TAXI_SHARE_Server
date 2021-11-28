@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAXI_SHARE_Server", "TAXI_SHARE_Server\TAXI_SHARE_Server.csproj", "{8F632102-F3E8-428F-A5A8-0DDC7F60C046}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TAXI_SHARE_Server", "TAXI_SHARE_Server\TAXI_SHARE_Server.csproj", "{8F632102-F3E8-428F-A5A8-0DDC7F60C046}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiShare.Core", "TaxiShare.Core\TaxiShare.Core.csproj", "{D7029A99-0F6C-4B2B-B853-623AC762841B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{E8C30BC4-8D9A-4EB3-B9E2-7D92DE77A2DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiShare.Data", "TaxiShare.Data\TaxiShare.Data.csproj", "{9ADE1E8D-5285-4BDD-B619-CDF8E3475603}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{8F632102-F3E8-428F-A5A8-0DDC7F60C046}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F632102-F3E8-428F-A5A8-0DDC7F60C046}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F632102-F3E8-428F-A5A8-0DDC7F60C046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7029A99-0F6C-4B2B-B853-623AC762841B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7029A99-0F6C-4B2B-B853-623AC762841B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7029A99-0F6C-4B2B-B853-623AC762841B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7029A99-0F6C-4B2B-B853-623AC762841B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8C30BC4-8D9A-4EB3-B9E2-7D92DE77A2DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8C30BC4-8D9A-4EB3-B9E2-7D92DE77A2DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8C30BC4-8D9A-4EB3-B9E2-7D92DE77A2DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8C30BC4-8D9A-4EB3-B9E2-7D92DE77A2DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ADE1E8D-5285-4BDD-B619-CDF8E3475603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ADE1E8D-5285-4BDD-B619-CDF8E3475603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ADE1E8D-5285-4BDD-B619-CDF8E3475603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ADE1E8D-5285-4BDD-B619-CDF8E3475603}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
