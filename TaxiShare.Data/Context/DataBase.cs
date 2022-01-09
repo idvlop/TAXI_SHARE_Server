@@ -11,6 +11,7 @@ namespace TaxiShare.Data.Context
     public class DataBase : DbContext
     {
         public DataBase(DbContextOptions options) : base(options) { }
+
         public DbSet<Messege> Messeges { get; set; }
         public DbSet<Lobby> Lobbies { get; set; }
         public DbSet<Grade> Grades { get; set; }

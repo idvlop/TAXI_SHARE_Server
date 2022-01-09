@@ -8,10 +8,12 @@ namespace TaxiShare.Core.Entities
 {
     public class Grade
     {
+        protected Grade() { }
+
         public long Id { get; set; }
         public int Score { get; set; }
-        public long CreatorId { get; set; }
-        public long UserId { get; set; }
-        public long LobbyId { get; set; }
+        public User Creator { get; set; }
+        public User Holder { get; set; }
+        public Lobby Lobby { get; set; }
     }
 }

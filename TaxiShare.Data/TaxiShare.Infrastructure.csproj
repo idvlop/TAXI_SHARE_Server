@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TaxiShare.Core\TaxiShare.Core.csproj" />
+    <ProjectReference Include="..\TaxiShare.Core\TaxiShare.Domain.csproj" />
   </ItemGroup>
 
 </Project>

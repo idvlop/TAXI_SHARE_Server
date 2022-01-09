@@ -20,4 +20,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TaxiShare.Data\TaxiShare.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

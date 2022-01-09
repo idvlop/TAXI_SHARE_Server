@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiShare.Data", "TaxiShare.Data\TaxiShare.Data.csproj", "{1DCC3639-4607-4ED2-BC70-2DF24C3697C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiShare.Infrastructure", "TaxiShare.Data\TaxiShare.Infrastructure.csproj", "{1DCC3639-4607-4ED2-BC70-2DF24C3697C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiShare.Core", "TaxiShare.Core\TaxiShare.Core.csproj", "{24600F59-C6EA-47D6-8F97-0DBDE584D98C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiShare.Domain", "TaxiShare.Core\TaxiShare.Domain.csproj", "{24600F59-C6EA-47D6-8F97-0DBDE584D98C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiShare.Application", "TaxiShare.Application\TaxiShare.Application.csproj", "{3940CA4D-E42C-4693-A704-4DD2D90AB507}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiShare.Application", "TaxiShare.Application\TaxiShare.Application.csproj", "{3940CA4D-E42C-4693-A704-4DD2D90AB507}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiShare.API", "TaxiShare.API\TaxiShare.API.csproj", "{F45E2D95-0571-4781-90EE-AAD7CFCE80A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiShare.Hub", "TaxiShare.API\TaxiShare.Hub.csproj", "{F45E2D95-0571-4781-90EE-AAD7CFCE80A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,9 +9,18 @@ namespace TaxiShare.Core.Entities
 {
     public class User : IdentityUser
     {
+        protected User() { }
+
+        public User(string connectionId, long id)
+        {
+            ConnectionId = connectionId;
+            Id = id;
+        }
+
         public long Id { get; set; }
+        public string ConnectionId { get; private set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public ICollection<ApplicationUserRole> UserRoles { get; } = new List<ApplicationUserRole>();
+        //public ICollection<ApplicationUserRole> UserRoles { get; } = new List<ApplicationUserRole>();
     }
 }

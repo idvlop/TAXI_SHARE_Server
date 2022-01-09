@@ -10,5 +10,6 @@ namespace TaxiShare.Core.Entities
 {
     public class Role //: IdentityRole<string>
     {
+
     }
 }

@@ -8,12 +8,14 @@ namespace TaxiShare.Core.Entities
 {
     public class Messege
     {
+        protected Messege() { }
+
         public long Id { get; set; }
         public string Text { get; set; }
-        public long CreatorId { get; set; }
-        public long LobbyId { get; set; }
-        public DateTime CreationTime { get; set; }
-        public DateTime LastChangeTime { get; set; }
+        public User Creator { get; set; }
+        public Lobby Lobby { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime LastChanged { get; set; }
         public bool IsSystemMessege { get; set; }
         public bool InExistance { get; set; }
     }
