@@ -8,14 +8,22 @@ using TaxiShare.Core.Entities;
 
 namespace TaxiShare.Data.Context
 {
-    public class DataBase : DbContext
+    public class TaxiShareDbContext : DbContext
     {
-        public DataBase(DbContextOptions options) : base(options) { }
+        protected TaxiShareDbContext()
+        {
+        }
+        public TaxiShareDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Messege> Messeges { get; set; }
         public DbSet<Trip> Lobbies { get; set; }
         public DbSet<Grade> Grades { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }
+        //public DbSet<Role> Roles { get; set; }
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
+        //}
     }
 }

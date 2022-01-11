@@ -1,26 +1,20 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TaxiShare.Core.Entities
 {
-    public class User : IdentityUser
+    public class User
     {
         protected User() { }
 
-        public User(string connectionId, long id)
-        {
-            ConnectionId = connectionId;
-            Id = id;
-        }
-        [Required]
-        public long Id { get; set; }
+
+        public string Id { get; set; }
         public Guid Guid { get; set; }
-        public string Username { get; set; }
         public string ConnectionId { get; private set; }
         [Required]
         public string FirstName { get; set; }

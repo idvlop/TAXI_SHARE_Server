@@ -10,9 +10,9 @@ namespace TaxiShare.Hub.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly DataBase context;
+        private readonly TaxiShareDbContext context;
 
-        public UsersController(DataBase context)
+        public UsersController(TaxiShareDbContext context)
         {
             this.context = context;
         }
@@ -27,7 +27,7 @@ namespace TaxiShare.Hub.Controllers
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(string id)
         {
             var user = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
             return Ok(user);
@@ -46,7 +46,7 @@ namespace TaxiShare.Hub.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(long id, [FromBody] User user)
+        public async Task<IActionResult> Put(string id, [FromBody] User user)
         {
             if (user == null)
                 return BadRequest(nameof(user));
@@ -57,7 +57,6 @@ namespace TaxiShare.Hub.Controllers
 
             oldUser.FirstName = user.FirstName;
             oldUser.LastName = user.LastName;
-            oldUser.Email = user.Email;
             oldUser.PhotoUrl = user.PhotoUrl;
             await context.SaveChangesAsync();
 
@@ -66,7 +65,7 @@ namespace TaxiShare.Hub.Controllers
 
         // DELETE api/<UsersController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var user = await context.Users.FirstOrDefaultAsync(x => x.Id ==id);
             if (user == null)

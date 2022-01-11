@@ -15,7 +15,7 @@ namespace TaxiShare.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString(ConnectionString);
-            serviceCollection.AddNpgsql<DataBase>(connectionString);
+            serviceCollection.AddNpgsql<TaxiShareDbContext>(connectionString);
             //serviceCollection.AddScoped<IApplicationDbContext, ListenTogetherDbContext>();
             //serviceCollection.AddHttpClient<IEpisodesClient, EpisodesHttpClient>(opt =>
             //{
