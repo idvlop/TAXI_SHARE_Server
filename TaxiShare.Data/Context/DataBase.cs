@@ -13,7 +13,7 @@ namespace TaxiShare.Data.Context
         public DataBase(DbContextOptions options) : base(options) { }
 
         public DbSet<Messege> Messeges { get; set; }
-        public DbSet<Lobby> Lobbies { get; set; }
+        public DbSet<Trip> Lobbies { get; set; }
         public DbSet<Grade> Grades { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }

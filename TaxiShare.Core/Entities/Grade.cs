@@ -14,6 +14,7 @@ namespace TaxiShare.Core.Entities
         public int Score { get; set; }
         public User Creator { get; set; }
         public User Holder { get; set; }
-        public Lobby Lobby { get; set; }
+        public Trip Trip { get; set; }
+        public bool InExistance { get; set; } = true;
     }
 }
