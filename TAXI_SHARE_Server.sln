@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiShare.Domain", "TaxiSha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiShare.Application", "TaxiShare.Application\TaxiShare.Application.csproj", "{3940CA4D-E42C-4693-A704-4DD2D90AB507}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiShare.Hub", "TaxiShare.API\TaxiShare.Hub.csproj", "{F45E2D95-0571-4781-90EE-AAD7CFCE80A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiShare.API", "TaxiShare.API\TaxiShare.API.csproj", "{F45E2D95-0571-4781-90EE-AAD7CFCE80A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
