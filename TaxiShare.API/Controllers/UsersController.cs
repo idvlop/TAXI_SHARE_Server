@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TaxiShare.Core.Entities;
-using TaxiShare.Data.Context;
+using TaxiShare.Domain.Entities;
+using TaxiShare.Infrastructure.Context;
 
 namespace TaxiShare.Hub.Controllers
 {
@@ -27,7 +27,7 @@ namespace TaxiShare.Hub.Controllers
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        public async Task<IActionResult> Get(long id)
         {
             var user = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
             return Ok(user);
@@ -46,7 +46,7 @@ namespace TaxiShare.Hub.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(string id, [FromBody] User user)
+        public async Task<IActionResult> Put(long id, [FromBody] User user)
         {
             if (user == null)
                 return BadRequest(nameof(user));
@@ -55,8 +55,8 @@ namespace TaxiShare.Hub.Controllers
             if (oldUser == null)
                 return NotFound();
 
-            oldUser.FirstName = user.FirstName;
-            oldUser.LastName = user.LastName;
+            oldUser.Firstname = user.Firstname;
+            oldUser.Surname = user.Surname;
             oldUser.PhotoUrl = user.PhotoUrl;
             await context.SaveChangesAsync();
 
@@ -65,7 +65,7 @@ namespace TaxiShare.Hub.Controllers
 
         // DELETE api/<UsersController>/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(long id)
         {
             var user = await context.Users.FirstOrDefaultAsync(x => x.Id ==id);
             if (user == null)

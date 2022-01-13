@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaxiShare.Core.Entities
+namespace TaxiShare.Domain.Entities
 {
+    //Not implemented
     public class Grade
     {
         protected Grade() { }

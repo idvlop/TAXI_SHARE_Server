@@ -1,19 +1,16 @@
 using Microsoft.EntityFrameworkCore;
-using TaxiShare.Data.Context;
+using TaxiShare.Infrastructure.Context;
 using TaxiShare.Hub;
 using TaxiShare.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using System.Text;
-using Microsoft.AspNetCore.Authentication.OAuth;
 using TaxiShare.API;
 
 var builder = WebApplication.CreateBuilder(args);
 var serviceCollection = builder.Services;
-#region SERVICES
+#region SERVICES SETUP
 
 //TaxiShare_Server's projects injections:
 serviceCollection.AddHub();
@@ -34,29 +31,20 @@ serviceCollection.AddAuthentication(JwtBearerDefaults.AuthenticationScheme) // Ï
             ValidAudience = AuthOptions.AUDIENCE,
             ValidateLifetime = true,
             IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
-            ValidateIssuerSigningKey = true,
+            ValidateIssuerSigningKey = true
         };
-    }); 
+    });
+
+serviceCollection.AddDbContext<TaxiShareDbContext>(options => 
+    options.UseNpgsql(builder.Configuration["ConnectionStrings:Default"],
+        b => b.MigrationsAssembly("TaxiShare.Infrastructure")));
+
 serviceCollection.AddAuthorization();
 serviceCollection.AddSwaggerGen(); // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 #endregion
 
-
-//const string ConnectionString = "Default";
-
-//IConfiguration Configuration { get; }
-
-//void ConfigureServices(IServiceCollection services)
-//{
-//    var connection = Configuration.GetConnectionString(ConnectionString);
-//    services.AddDbContext<Db>(options =>
-//                options.UseNpgsql(connection,
-//                    b => b.MigrationsAssembly("HRVRAcademy.WebUI")));
-//}
-
 var app = builder.Build();
-//await EnsureDbAsync(app.Services);
-
+#region MIDDLEWARE SETUP
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -64,12 +52,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors();
 app.UseHttpsRedirection();
 
-app.UseAuthentication(); 
-app.UseAuthorization(); 
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
+#endregion
 
 app.Run();
 

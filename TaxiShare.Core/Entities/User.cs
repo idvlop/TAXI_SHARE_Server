@@ -6,20 +6,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaxiShare.Core.Entities
+namespace TaxiShare.Domain.Entities
 {
     public class User
     {
         protected User() { }
 
-
-        public string Id { get; set; }
-        public Guid Guid { get; set; }
-        public string ConnectionId { get; private set; }
+        [Key, Required]
+        public long Id { get; set; }
         [Required]
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public Guid Guid { get; set; }
+        [Required]
+        public string Username { get; set; }
+        [Required]
+        public string PasswordHash { get; set; }
+        [Required]
+        public string Firstname { get; set; }
+        [Required]
+        public string Surname { get; set; }
+        public string PatronymicName { get; set; }
         public string PhotoUrl { get; set; }
+        public List<Trip> Trips { get; set; }
+        public List<Trip> OwnedTrips { get; set; }
+        public List<Messege> Messeges { get; set; }
         public bool InExistance { get; set; } = true;
         //public ICollection<ApplicationUserRole> UserRoles { get; } = new List<ApplicationUserRole>();
     }
