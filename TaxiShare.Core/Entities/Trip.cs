@@ -46,8 +46,8 @@ namespace TaxiShare.Domain.Entities
         public User Creator { get; set; }
         public long CreatorId { get; set; }
         public int? OverallCost { get; set; }
-        public List<User> Users { get; private set; }
-        public List<Message> Messeges { get; private set; }
+        public List<User> Users { get; private set; } = new List<User>();
+        public List<Message> Messeges { get; private set; } = new List<Message>();
         public bool InExistance { get; set; } = true;
     }
 }

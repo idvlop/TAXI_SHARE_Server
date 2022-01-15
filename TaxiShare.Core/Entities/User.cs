@@ -26,9 +26,9 @@ namespace TaxiShare.Domain.Entities
         public string Surname { get; set; }
         public string? PatronymicName { get; set; }
         public string? PhotoUrl { get; set; }
-        public List<Trip>? Trips { get; set; }
-        public List<Trip>? OwnedTrips { get; set; }
-        public List<Message>? Messeges { get; set; }
+        public List<Trip>? Trips { get; set; } = new List<Trip>();
+        public List<Trip>? OwnedTrips { get; set; } = new List<Trip>();
+        public List<Message>? Messeges { get; set; } = new List<Message>();
         public bool InExistance { get; set; } = true;
         //public ICollection<ApplicationUserRole> UserRoles { get; } = new List<ApplicationUserRole>();
     }
