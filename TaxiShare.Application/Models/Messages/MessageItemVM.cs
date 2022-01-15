@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TaxiShare.Domain.Entities;
 using TaxiShare.Domain.Extentions;
 
-namespace TaxiShare.Domain.Models.Messages
+namespace TaxiShare.Application.Models.Messages
 {
     public class MessageItemVM
     {

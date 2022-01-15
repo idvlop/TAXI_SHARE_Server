@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using TaxiShare.Domain.Models.Trips;
+using TaxiShare.Application.Models.Trips;
 using TaxiShare.Infrastructure.Context;
 
 namespace TaxiShare.Application.Requests.Admin.Queries
@@ -22,6 +22,7 @@ namespace TaxiShare.Application.Requests.Admin.Queries
         public async Task<List<TripItemVM>> Handle(GetAllTripsAdminQuery request, CancellationToken cancellationToken)
         {
             var trips = await context.Trips
+                .Where(x => x.InExistance)
                 .Include(x => x.Users)
                 .Select(x => new TripItemVM(x))
                 .ToListAsync(cancellationToken);

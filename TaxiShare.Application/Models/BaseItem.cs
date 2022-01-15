@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaxiShare.Domain.Models
+namespace TaxiShare.Application.Models
 {
     public class BaseItem<T>
     {

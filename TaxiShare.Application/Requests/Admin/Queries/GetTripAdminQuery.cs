@@ -1,11 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaxiShare.Domain.Models.Trips;
+using TaxiShare.Application.Models.Trips;
 using TaxiShare.Infrastructure.Context;
 
 namespace TaxiShare.Application.Requests.Admin.Queries
@@ -31,12 +26,16 @@ namespace TaxiShare.Application.Requests.Admin.Queries
 
         public async Task<TripVM?> Handle(GetTripAdminQuery request, CancellationToken cancellationToken)
         {
-            var trip = await context.Trips.Where(x => x.Guid == request.TripGuid).Include(x => x.Users).Include(x => x.Messeges).FirstOrDefaultAsync(cancellationToken);
+            var trip = await context.Trips
+                .Where(x => x.Guid == request.TripGuid && x.InExistance)
+                .Include(x => x.Users)
+                .Include(x => x.Messeges)
+                .FirstOrDefaultAsync(cancellationToken);
+
             if (trip == null)
                 return null;
 
-            var response = new TripVM(trip);
-            return response;
+            return new TripVM(trip);
         }
     }
 }

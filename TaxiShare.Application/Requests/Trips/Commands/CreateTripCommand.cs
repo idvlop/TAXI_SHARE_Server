@@ -1,6 +1,7 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
+using TaxiShare.Application.Models.Trips;
 using TaxiShare.Domain.Entities;
-using TaxiShare.Domain.Models.Trips;
 using TaxiShare.Infrastructure.Context;
 
 namespace TaxiShare.Application.Requests.Trips.Commands
@@ -28,9 +29,17 @@ namespace TaxiShare.Application.Requests.Trips.Commands
         public async Task<GenericResponse<Guid>> Handle(CreateTripCommand request, CancellationToken cancellationToken)
         {
             var model = request.Model;
+            if (model == null)
+                return new GenericResponse<Guid>(false, 400);
+
+            var creator = await context.Users.FirstOrDefaultAsync(x => x.Id == model.CreatorId, cancellationToken);
+            if (creator == null)
+                return new GenericResponse<Guid>(false, 400);
+
             var newTrip = new Trip(model.CreatorId, model.Title, model.DeparturePointAddress, model.ArrivalPointAddress, model.UserLimit, model.OverallCost);
-            
-            await context.AddAsync(newTrip);
+            newTrip.Users.Add(creator);
+
+            await context.AddAsync(newTrip, cancellationToken);
             await context.SaveChangesAsync(cancellationToken);
 
             return new GenericResponse<Guid>(true, newTrip.Guid);

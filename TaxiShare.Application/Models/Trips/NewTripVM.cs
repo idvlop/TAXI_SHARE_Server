@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaxiShare.Domain.Models.Trips
+namespace TaxiShare.Application.Models.Trips
 {
     public class NewTripVM
     {
@@ -25,6 +25,6 @@ namespace TaxiShare.Domain.Models.Trips
         public string ArrivalPointAddress { get; set; }
         public int? OverallCost { get; set; }
         public int UserLimit { get; set; }
-        public long CreatorId { get; set; }
+        public long CreatorId { get; set; } //TODO Заменить на Guid или извлекать из аутентификации
     }
 }

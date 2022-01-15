@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Requests\Admin\Commands\" />
     <Folder Include="Requests\Trips\Queries\" />
     <Folder Include="ServicesImpls\" />
     <Folder Include="RepositoryImpls\" />
