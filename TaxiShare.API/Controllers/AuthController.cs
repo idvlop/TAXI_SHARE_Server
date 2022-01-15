@@ -10,18 +10,18 @@ namespace TaxiShare.API.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        [HttpPost("/login")]
-        public async Task<IActionResult> Login(string username, string password)
-        {
-            var claims = new List<Claim> { new Claim(ClaimTypes.Name, username) };
-            var jwt = new JwtSecurityToken(
-                    issuer: AuthOptions.ISSUER,
-                    audience: AuthOptions.AUDIENCE,
-                    claims: claims,
-                    expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(2)), // время действия 2 минуты
-                    signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+        //[HttpPost("/login")]
+        //public async Task<IActionResult> Login(string username, string password)
+        //{
+        //    var claims = new List<Claim> { new Claim(ClaimTypes.Name, username) };
+        //    var jwt = new JwtSecurityToken(
+        //            issuer: AuthOptions.ISSUER,
+        //            audience: AuthOptions.AUDIENCE,
+        //            claims: claims,
+        //            expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(2)), // время действия 2 минуты
+        //            signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
 
-            return Ok(new { Token = "Bearer " + new JwtSecurityTokenHandler().WriteToken(jwt) });
-        }
+        //    return Ok(new { Token = "Bearer " + new JwtSecurityTokenHandler().WriteToken(jwt) });
+        //}
     }
 }

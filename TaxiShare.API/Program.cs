@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using TaxiShare.API;
+using MediatR;
+using TaxiShare.Application.Requests.Admin.Queries;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 var serviceCollection = builder.Services;
@@ -41,6 +44,8 @@ serviceCollection.AddDbContext<TaxiShareDbContext>(options =>
 
 serviceCollection.AddAuthorization();
 serviceCollection.AddSwaggerGen(); // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+serviceCollection.AddRouting(options => options.LowercaseUrls = true);
+serviceCollection.AddMediatR(typeof(Program), typeof(GetAllTripsAdminQueryHandler));
 #endregion
 
 var app = builder.Build();

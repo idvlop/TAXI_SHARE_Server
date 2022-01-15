@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TaxiShare.Infrastructure.Context;
@@ -11,9 +12,10 @@ using TaxiShare.Infrastructure.Context;
 namespace TaxiShare.Infrastructure.Migrations
 {
     [DbContext(typeof(TaxiShareDbContext))]
-    partial class TaxiShareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220115131826_addClosedDateToTrip")]
+    partial class addClosedDateToTrip
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,7 +58,7 @@ namespace TaxiShare.Infrastructure.Migrations
                     b.ToTable("Grades");
                 });
 
-            modelBuilder.Entity("TaxiShare.Domain.Entities.Message", b =>
+            modelBuilder.Entity("TaxiShare.Domain.Entities.Messege", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -140,14 +142,11 @@ namespace TaxiShare.Infrastructure.Migrations
                     b.Property<int?>("OverallCost")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("integer");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("UsersCountLimit")
+                    b.Property<int>("UserLimit")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -182,9 +181,11 @@ namespace TaxiShare.Infrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("PatronymicName")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("PhotoUrl")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Surname")
@@ -244,7 +245,7 @@ namespace TaxiShare.Infrastructure.Migrations
                     b.Navigation("Trip");
                 });
 
-            modelBuilder.Entity("TaxiShare.Domain.Entities.Message", b =>
+            modelBuilder.Entity("TaxiShare.Domain.Entities.Messege", b =>
                 {
                     b.HasOne("TaxiShare.Domain.Entities.User", "Creator")
                         .WithMany("Messeges")

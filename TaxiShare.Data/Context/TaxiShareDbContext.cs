@@ -13,7 +13,7 @@ namespace TaxiShare.Infrastructure.Context
         protected TaxiShareDbContext() { }
         public TaxiShareDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Messege> Messeges { get; set; }
+        public DbSet<Message> Messeges { get; set; }
         public DbSet<Trip> Trips { get; set; }
         public DbSet<Grade> Grades { get; set; }
         public DbSet<User> Users { get; set; }
@@ -50,12 +50,12 @@ namespace TaxiShare.Infrastructure.Context
             #endregion
 
             #region Messege
-            modelBuilder.Entity<Messege>()
+            modelBuilder.Entity<Message>()
                 .HasAlternateKey(m => m.Guid);
-            modelBuilder.Entity<Messege>()
+            modelBuilder.Entity<Message>()
                 .HasOne(m => m.Creator)
                 .WithMany(u => u.Messeges);
-            modelBuilder.Entity<Messege>()
+            modelBuilder.Entity<Message>()
                 .HasOne(m => m.Trip)
                 .WithMany(t => t.Messeges);
             #endregion

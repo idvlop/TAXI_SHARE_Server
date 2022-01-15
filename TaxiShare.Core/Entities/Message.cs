@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace TaxiShare.Domain.Entities
 {
-    public class Messege
+    public class Message
     {
-        protected Messege() { }
+        protected Message() { }
 
-        public Messege(string text, long tripId, long? creatorId = null)
+        public Message(string text, long tripId, long? creatorId = null)
         {
             Guid = Guid.NewGuid();
             Text = text;
             TripId = tripId;
-            Created = DateTime.Now;
+            Created = DateTime.UtcNow;
             if(creatorId != null)
                 CreatorId = creatorId;
             else

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaxiShare.Domain.Enums;
 
 namespace TaxiShare.Domain.Entities
 {
@@ -19,8 +20,8 @@ namespace TaxiShare.Domain.Entities
             Title = title;
             DeparturePointAddress = departurePointAddress;
             ArrivalPointAddress = arrivalPointAddress;
-            UserLimit = userLimit;
-            Created = DateTime.Now;
+            UsersCountLimit = userLimit;
+            Created = DateTime.UtcNow;
             OverallCost = overallCost;
         }
 
@@ -32,6 +33,8 @@ namespace TaxiShare.Domain.Entities
         public Guid Guid { get; set; }
         [Required]
         public DateTime Created { get; set; }
+        public TripStatus Status { get; set; }
+        public DateTime? Closed { get; set; }
         [Required]
         public string DeparturePointAddress { get; set; }
         public DateTime DepartureTime { get; set; }
@@ -39,13 +42,13 @@ namespace TaxiShare.Domain.Entities
         public string ArrivalPointAddress { get; set; }
         public DateTime ArrivalTime { get; set; }
         [Required]
-        public int UserLimit { get; set; }
+        public int UsersCountLimit { get; set; }
         [ForeignKey("CreatorId"), Required]
         public User Creator { get; set; }
         public long CreatorId { get; set; }
         public int? OverallCost { get; set; }
         public List<User> Users { get; private set; }
-        public List<Messege> Messeges { get; private set; }
+        public List<Message> Messeges { get; private set; }
         public bool InExistance { get; set; } = true;
     }
 }
