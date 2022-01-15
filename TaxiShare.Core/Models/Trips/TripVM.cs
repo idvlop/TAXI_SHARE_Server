@@ -30,7 +30,7 @@ namespace TaxiShare.Domain.Models.Trips
         public TripStatus Status { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Closed { get; set; }
-        public DateTime DepartureTime { get; set; }
+        public DateTime? DepartureTime { get; set; }
         public string DeparturePointAddress { get; set; }
         public string ArrivalPointAddress { get; set; }
         public int? OverallCost { get; set; }

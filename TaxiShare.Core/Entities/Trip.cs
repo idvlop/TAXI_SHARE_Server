@@ -37,10 +37,9 @@ namespace TaxiShare.Domain.Entities
         public DateTime? Closed { get; set; }
         [Required]
         public string DeparturePointAddress { get; set; }
-        public DateTime DepartureTime { get; set; }
+        public DateTime? DepartureTime { get; set; }
         [Required]
         public string ArrivalPointAddress { get; set; }
-        public DateTime ArrivalTime { get; set; }
         [Required]
         public int UsersCountLimit { get; set; }
         [ForeignKey("CreatorId"), Required]
