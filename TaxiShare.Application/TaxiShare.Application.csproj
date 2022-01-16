@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Requests\Auth\Queries\" />
     <Folder Include="Requests\Trips\Queries\" />
     <Folder Include="ServicesImpls\" />
     <Folder Include="RepositoryImpls\" />

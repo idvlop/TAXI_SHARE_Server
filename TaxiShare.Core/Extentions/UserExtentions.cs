@@ -14,9 +14,9 @@ namespace TaxiShare.Domain.Extentions
         /// </summary>
         /// <param name="firstname">Имя</param>
         /// <param name="surname">Фамилия</param>
-        /// <param name="forename">Отчество</param>
+        /// <param name="patronymicname">Отчество</param>
         /// <returns>ФИО полностью.</returns>
-        public static string GetFullNameOrDefault(string firstname, string surname, string? forename = null)
+        public static string GetFullNameOrDefault(string firstname, string surname, string? patronymicname = null)
         {
             var fullname = new StringBuilder();
 
@@ -26,8 +26,8 @@ namespace TaxiShare.Domain.Extentions
             if (!string.IsNullOrEmpty(firstname) && !string.IsNullOrWhiteSpace(firstname))
                 fullname.Append(' ' + firstname);
 
-            if (!string.IsNullOrEmpty(forename) && !string.IsNullOrWhiteSpace(forename))
-                fullname.Append(' ' + forename);
+            if (!string.IsNullOrEmpty(patronymicname) && !string.IsNullOrWhiteSpace(patronymicname))
+                fullname.Append(' ' + patronymicname);
 
             var res = fullname.ToString();
             return res;

@@ -31,11 +31,11 @@ namespace TaxiShare.Domain.Entities
         [Required]
         public string Text { get; set; }
         [ForeignKey("CreatorId")]
-        public User? Creator { get; set; }
-        public long? CreatorId { get; set; }
+        public User? Creator { get; private set; }
+        public long? CreatorId { get; private set; }
         [ForeignKey("TripId"), Required]
-        public Trip Trip { get; set; }
-        public long TripId { get; set; }
+        public Trip Trip { get; private set; }
+        public long TripId { get; private set; }
         [Required]
         public DateTime Created { get; set; }
         public DateTime? LastChanged { get; set; }

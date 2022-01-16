@@ -1,9 +1,9 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace TaxiShare.API
+namespace TaxiShare.Application
 {
-    public class AuthOptions
+    public static class AuthOptions
     {
         public static string ISSUER { get; } = "taxi-share-server";
         public static string AUDIENCE { get; } = "taxi-share-client";

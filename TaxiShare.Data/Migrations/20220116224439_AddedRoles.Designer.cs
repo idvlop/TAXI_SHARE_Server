@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TaxiShare.Infrastructure.Context;
@@ -11,9 +12,10 @@ using TaxiShare.Infrastructure.Context;
 namespace TaxiShare.Infrastructure.Migrations
 {
     [DbContext(typeof(TaxiShareDbContext))]
-    partial class TaxiShareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220116224439_AddedRoles")]
+    partial class AddedRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -206,11 +208,6 @@ namespace TaxiShare.Infrastructure.Migrations
                     b.Property<string>("PhotoUrl")
                         .HasColumnType("text");
 
-                    b.Property<long>("RoleId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasDefaultValue(1L);
-
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("text");
@@ -222,8 +219,6 @@ namespace TaxiShare.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasAlternateKey("Guid");
-
-                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
@@ -298,17 +293,6 @@ namespace TaxiShare.Infrastructure.Migrations
                     b.Navigation("Creator");
                 });
 
-            modelBuilder.Entity("TaxiShare.Domain.Entities.User", b =>
-                {
-                    b.HasOne("TaxiShare.Domain.Entities.Role", "Role")
-                        .WithMany("Users")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-                });
-
             modelBuilder.Entity("TripUser", b =>
                 {
                     b.HasOne("TaxiShare.Domain.Entities.Trip", null)
@@ -322,11 +306,6 @@ namespace TaxiShare.Infrastructure.Migrations
                         .HasForeignKey("UsersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TaxiShare.Domain.Entities.Role", b =>
-                {
-                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("TaxiShare.Domain.Entities.Trip", b =>

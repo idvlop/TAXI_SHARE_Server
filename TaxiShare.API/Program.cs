@@ -3,21 +3,20 @@ using TaxiShare.Infrastructure.Context;
 using TaxiShare.Hub;
 using TaxiShare.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using TaxiShare.API;
 using MediatR;
 using TaxiShare.Application.Requests.Admin.Queries;
-using System.Reflection;
+using TaxiShare.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 var serviceCollection = builder.Services;
+
 #region SERVICES SETUP
 
 //TaxiShare_Server's projects injections:
 serviceCollection.AddHub();
 serviceCollection.AddInfrastructure(builder.Configuration);
+serviceCollection.AddApplication(builder.Configuration);
 
 //Services:
 serviceCollection.AddControllers();

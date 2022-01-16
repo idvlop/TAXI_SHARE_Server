@@ -26,10 +26,13 @@ namespace TaxiShare.Domain.Entities
         public string Surname { get; set; }
         public string? PatronymicName { get; set; }
         public string? PhotoUrl { get; set; }
-        public List<Trip>? Trips { get; set; } = new List<Trip>();
-        public List<Trip>? OwnedTrips { get; set; } = new List<Trip>();
-        public List<Message>? Messeges { get; set; } = new List<Message>();
+        public List<Trip>? Trips { get; private set; } = new List<Trip>();
+        public List<Trip>? OwnedTrips { get; private set; } = new List<Trip>();
+        public List<Message>? Messeges { get; private set; } = new List<Message>();
+        
+        [ForeignKey("RoleId"), Required]
+        public Role Role { get; set; }
+        public long RoleId { get; private set; } = 1;
         public bool InExistance { get; set; } = true;
-        //public ICollection<ApplicationUserRole> UserRoles { get; } = new List<ApplicationUserRole>();
     }
 }

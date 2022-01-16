@@ -43,8 +43,8 @@ namespace TaxiShare.Domain.Entities
         [Required]
         public int UsersCountLimit { get; set; }
         [ForeignKey("CreatorId"), Required]
-        public User Creator { get; set; }
-        public long CreatorId { get; set; }
+        public User Creator { get; private set; }
+        public long CreatorId { get; private set; }
         public int? OverallCost { get; set; }
         public List<User> Users { get; private set; } = new List<User>();
         public List<Message> Messeges { get; private set; } = new List<Message>();

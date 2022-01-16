@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TaxiShare.Infrastructure.Context;
@@ -11,9 +12,10 @@ using TaxiShare.Infrastructure.Context;
 namespace TaxiShare.Infrastructure.Migrations
 {
     [DbContext(typeof(TaxiShareDbContext))]
-    partial class TaxiShareDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220116225424_LinkedRoleAndUser")]
+    partial class LinkedRoleAndUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

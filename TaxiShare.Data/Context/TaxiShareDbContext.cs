@@ -47,6 +47,9 @@ namespace TaxiShare.Infrastructure.Context
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Messeges)
                 .WithOne(m => m.Creator);
+            modelBuilder.Entity<User>()
+                .Property(u => u.RoleId)
+                .HasDefaultValue(1L);
             #endregion
 
             #region Messege
@@ -58,6 +61,14 @@ namespace TaxiShare.Infrastructure.Context
             modelBuilder.Entity<Message>()
                 .HasOne(m => m.Trip)
                 .WithMany(t => t.Messeges);
+            #endregion
+
+            #region
+            modelBuilder.Entity<Role>()
+                .HasAlternateKey(r => r.Guid);
+            modelBuilder.Entity<Role>()
+                .HasMany(r => r.Users)
+                .WithOne(u => u.Role);
             #endregion
 
             base.OnModelCreating(modelBuilder);
