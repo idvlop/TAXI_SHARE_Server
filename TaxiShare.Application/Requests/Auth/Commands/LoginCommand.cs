@@ -58,7 +58,7 @@ namespace TaxiShare.Application.Requests.Auth.Commands
                 issuer: AuthOptions.ISSUER,
                 audience: AuthOptions.AUDIENCE,
                 claims: claims,
-                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(3)), // время действия 1 день
+                expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(30)), // время действия 30 минут
                 signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
 
             var responseBody = new UserLoginVM("Bearer " + new JwtSecurityTokenHandler().WriteToken(jwt));
