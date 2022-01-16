@@ -37,13 +37,13 @@ namespace TaxiShare.API.Controllers
             return Ok(response.Body);
         }
 
-        [HttpPost("/logout")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync(JwtBearerDefaults.AuthenticationScheme);
-            return Ok();
-        }
+        //[HttpPost("/logout")]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        //public async Task<IActionResult> Logout()
+        //{
+        //    await HttpContext.SignOutAsync(JwtBearerDefaults.AuthenticationScheme);
+        //    return Ok();
+        //}
     }
 }
